@@ -5,3 +5,7 @@
  Ultralytics
  https://docs.ultralytics.com/
 
+Please refer to env.txt for creating the environment to run in anaconda
+
+you can use below command to create the environment:
+conda env create -n ENVNAME -f env.txt
