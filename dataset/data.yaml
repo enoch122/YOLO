@@ -1,0 +1,13 @@
+train: ../train/images
+val: ../valid/images
+test: ../test/images
+
+nc: 23
+names: ['MB201_fireHoseReel', 'MB201_roomNum', 'MB201_windowNum', 'MB202_roomNum', 'MB203_bannerNumber', 'MB203_roomNum', 'MB204_roomNumber', 'MB212_cardboard', 'MB212_roomNumber', 'MB213_cardboard', 'MB213_roomNumber', 'MB213_roomNumber_blackdigit', 'MB214_cardboard', 'MB214_roomNumber', 'MB215_roomNumber', 'MB216_roomNumber', 'MB217_roomNum', 'MB217_roomNumber', 'MB217_windowNum', 'MB217_wordsOnWindow', 'loke_yew_statue', 'loke_yew_statue_base', 'pillar']
+
+roboflow:
+  workspace: mblabeling-yjg9s
+  project: mainbuilding
+  version: 2
+  license: CC BY 4.0
+  url: https://universe.roboflow.com/mblabeling-yjg9s/mainbuilding/dataset/2
