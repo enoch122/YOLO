@@ -1,0 +1,13 @@
+train: ../train/images
+val: ../valid/images
+test: ../test/images
+
+nc: 54
+names: ['jupasOffice', 'room201', 'room201Window', 'room202', 'room203', 'room203Window', 'room204', 'room212', 'room212Window', 'room213', 'room213Window', 'room214', 'room214Window', 'room215', 'room216', 'room217', 'room217Window', 'room218', 'room221', 'room224', 'room224Window', 'room225', 'room225Window', 'room226', 'room226Window', 'room227', 'room228', 'room229', 'room230', 'room230A', 'room230AWindow', 'room234Window', 'room235Window', 'room237', 'room237Window', 'room238', 'room239', 'room240', 'room241', 'room241a', 'room241b', 'room241c', 'room241d', 'room248', 'room249', 'room249c', 'room249cWindow', 'room254', 'room255', 'room256', 'room256Window', 'room257', 'room257door', 'statues']
+
+roboflow:
+  workspace: mblabeling-yjg9s
+  project: mainbuildingv2
+  version: 5
+  license: CC BY 4.0
+  url: https://universe.roboflow.com/mblabeling-yjg9s/mainbuildingv2/dataset/5
