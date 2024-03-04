@@ -17,6 +17,8 @@ output_codec = cv2.VideoWriter_fourcc(*"mp4v")
 
 # Initialize video writer
 output_writer = cv2.VideoWriter(output_path, output_codec, output_fps, (output_width, output_height))
+outputStec = []
+
 
 # Process video frames
 while cap.isOpened():
@@ -25,20 +27,22 @@ while cap.isOpened():
 
     if success:
         # Run YOLOv8 inference on the frame
-        results = model.predict(frame, verbose=False)
+        results = model.predict(frame, verbose=False, conf=0.7)
         
-        print(results[0].names)
+        # print(results[0].names)
 
         # Display detected results with confidence scores and class id
-        for r in results:
-            print(f"Detected class id: {int(r.boxes.cls.numpy()[()][0])}; Confidence: {float(r.boxes.conf.numpy()[()][0])}")
-
+        if len(results) > 0:
+            for r in results:
+                if r.boxes.cls.numpy().size > 0 and r.boxes.conf.numpy().size > 0:
+                    print(f"Detected class id: {int(r.boxes.cls.numpy()[()][0])}; Confidence: {float(r.boxes.conf.numpy()[()][0])}")
+                    outputStec.append((int(r.boxes.cls.numpy()[()][0]), float(r.boxes.conf.numpy()[()][0])))
         # Visualize the results on the frame
-        annotated_frame = results[0].plot()
-        annotated_frame = cv2.resize(annotated_frame, (output_width, output_height))
+            annotated_frame = results[0].plot()
+            annotated_frame = cv2.resize(annotated_frame, (output_width, output_height))
 
         # Write the annotated frame to the output video file
-        output_writer.write(annotated_frame)
+            output_writer.write(annotated_frame)
 
         # Break the loop if 'q' is pressed
         if cv2.waitKey(1) & 0xFF == ord("q"):
@@ -51,3 +55,5 @@ while cap.isOpened():
 cap.release()
 output_writer.release()
 cv2.destroyAllWindows()
+print(outputStec)
+print(len(outputStec))
